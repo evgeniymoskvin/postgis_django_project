@@ -37,9 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'rest_framework',
+    'drf_spectacular',
     'postgis_app',
     'postgis_api'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',  # Схема для автоматической генерации API-документации
+}
+
+# Настройки для drf-spectacular
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'User Management API',                               # Название API
+    'DESCRIPTION': 'API для регистрации, получения и удаления пользователей.',  # Описание API
+    'VERSION': '1.0.0',                                           # Версия API
+    'SERVE_INCLUDE_SCHEMA': False,                                # Отключение схемы в ответах API
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

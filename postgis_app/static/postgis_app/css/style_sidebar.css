@@ -180,3 +180,11 @@ nav ul, nav li {
     height: 21px;
     padding-left: 16px; /* Or size of icon + spacing */
 }
+
+.icon-swagger {
+    background-image: url('../icons/user-gear-solid.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 21px;
+    padding-left: 16px; /* Or size of icon + spacing */
+}
