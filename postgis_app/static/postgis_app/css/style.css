@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Rosatom_light';
+    src: url('../fonts/rosatom/Rosatom-Light.woff2') format('woff2'),
+    url('../fonts/rosatom/Rosatom-Light.woff') format('woff'),
+    url('../fonts/rosatom/Rosatom-Light.eot') format('eot');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Rosatom_regular';
+    src: url('../fonts/rosatom/Rosatom-Regular.woff2') format('woff2'),
+    url('../fonts/rosatom/Rosatom-Regular.woff') format('woff'),
+    url('../fonts/rosatom/Rosatom-Regular.eot') format('eot');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Rosatom_bold';
+    src: url('../fonts/rosatom/Rosatom-Bold.woff2') format('woff2'),
+    url('../fonts/rosatom/Rosatom-Bold.woff') format('woff'),
+    url('../fonts/rosatom/Rosatom-Bold.eot') format('eot');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.content-fade {
+    scroll-behavior: smooth;
+    animation: fade-in 0.7s ease-in-out;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.text-36px-bold {
+    font-size: 36px;
+    font-family: "Rosatom_bold", serif;
+    color: #1D222A;
+}
+
+.text-36px-regular {
+    font-size: 36px;
+    font-family: "Rosatom_regular", serif;
+    color: #1D222A;
+}
+
+.text-36px-light {
+    font-size: 36px;
+    font-family: "Rosatom_light", serif;
+    color: #1D222A;
+}
+
+.text-16px-bold {
+    font-size: 16px;
+    font-family: "Rosatom_bold", serif;
+    color: #1D222A;
+}
+
+.text-16px-regular {
+    font-size: 16px;
+    font-family: "Rosatom_regular", serif;
+    color: #1D222A;
+}
+
+.text-16px-light {
+    font-size: 16px;
+    font-family: "Rosatom_light", serif;
+    color: #1D222A;
+}
+
+
+.input_geo_text {
+    width: auto;
+    height: 45px;
+    border: 1px solid rgb(108, 172, 228);
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: "Rosatom_regular", serif;
+}
+
+.button_blue_clearance {
+    width: 123px;
+    height: 40px;
+    border: rgb(174, 211, 242);
+    border-radius: 8px;
+    background: rgb(174, 211, 242);
+    font-size: 20px;
+    font-family: "Rosatom_regular", serif;
+    color: white;
+    transition-duration: .15s;
+}
+
+.button_blue_clearance:hover {
+    box-shadow: 2px 4px 11px -3px rgba(2, 94, 161, 0.45);
+}
+
+.button_blue_clearance:disabled {
+    border: rgb(212, 213, 217);
+    border-radius: 8px;
+    background: rgb(212, 213, 217);;
+}
+
+.button_blue_clearance:disabled:hover {
+    box-shadow: 2px 4px 11px -3px rgba(155, 168, 176, 0.45);
+}

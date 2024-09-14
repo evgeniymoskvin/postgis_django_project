@@ -10,17 +10,18 @@
             Title
         {% endblock %}
     </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static "postgis_app/style.css" %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'postgis_app/Bootstrap-5-5.1.3/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "postgis_app/css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'postgis_app/css/style_sidebar.css' %}"/>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'postgis_app/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'postgis_app/Bootstrap-5-5.1.3/js/bootstrap.bundle.js' %}"></script>
 
 </head>
 <body class="content-fade">
+{% include "postgis_app/sidebar.html" %}
 <div class="container">
     {% block content %}
 

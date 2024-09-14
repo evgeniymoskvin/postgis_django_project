@@ -1,0 +1,11 @@
+{% extends "postgis_app/base.html" %}
+{% load static %}
+{% block title %}
+    {{ polygon_name }} - Просмотр полигона
+{% endblock %}
+
+{% block content %}
+<div class="d-flex mt-5 w-100">
+    {{ map_details | safe }}
+</div>
+{% endblock %}

@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('add', views.AddNewPolygon.as_view(), name='add'),
+    path('add', views.AddNewPolygonView.as_view(), name='add'),
+    path('map/<int:pk>', views.ShowOnMapView.as_view(), name='map'),
 ]
