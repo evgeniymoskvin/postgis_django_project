@@ -154,20 +154,7 @@ nav ul, nav li {
 }
 
 
-.numberCircle {
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    padding: 3px;
 
-    background: red;
-    /*border: 2px solid #666;*/
-    color: white;
-    text-align: center;
-    font-size: 11px;
-
-    font-family: "p22_underground_cy_probook", serif;
-}
 
 
 .icon-home {
@@ -178,3 +165,18 @@ nav ul, nav li {
     padding-left: 16px; /* Or size of icon + spacing */
 }
 
+.icon-pen {
+    background-image: url('../icons/pen-solid.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 21px;
+    padding-left: 16px; /* Or size of icon + spacing */
+}
+
+.icon-plane {
+    background-image: url('../icons/paper-plane-solid.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 21px;
+    padding-left: 16px; /* Or size of icon + spacing */
+}

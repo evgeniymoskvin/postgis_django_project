@@ -1,5 +1,5 @@
 import folium
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.gis.geos import Polygon, Point
 
@@ -49,24 +49,19 @@ class IndexView(View):
         polygon = Polygon(result_list)
         new_polygon = PolygonsModel(name_of_polygon=name_polygon, polygon=polygon, antimeridian=antimeridian)
         new_polygon.save()
-        content = {}
-        return render(request, 'postgis_app/index.html', content)
+        # Перенаправляем на страницу с созданным полигоном
+        return redirect('map', pk=new_polygon.id)
 
 
-class AddNewPolygonView(View):
+class ShowListPolygonsView(View):
+    """Отображения списка всех полигонов в бд"""
+
     def get(self, request):
-        test = (0.0, 0.0)
-
-        polygon = Polygon([test, (0.0, 50.0), (50.0, 50.0), (50.0, 0.0), test])
-        # polygon = Polygon(((0.0, 0.0), (0.0, 50.0), (50.0, 50.0), (50.0, 0.0)))
-        # polygon.append(Point(10.0, 10.0))
-        # polygon.append(Point(0.0, 0.0))
-        new_polygon = PolygonsModel(name_of_polygon="тест загрузки", polygon=polygon)
-        new_polygon.save()
+        polygons = PolygonsModel.objects.get_queryset()
         content = {
-
+            'polygons': polygons,
         }
-        return render(request, 'postgis_app/index.html', content)
+        return render(request, 'postgis_app/all_polygons.html', content)
 
 
 class ShowOnMapView(View):

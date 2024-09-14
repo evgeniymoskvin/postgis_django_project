@@ -90,6 +90,12 @@
     font-family: "Rosatom_regular", serif;
 }
 
+.input_geo_text:disabled {
+    border: 1px solid rgb(176, 181, 185);
+    /*box-shadow: 2px 4px 11px -3px rgba(149, 150, 150, 0.45);*/
+    color: grey;
+}
+
 .button_blue_clearance {
     width: 123px;
     height: 40px;
