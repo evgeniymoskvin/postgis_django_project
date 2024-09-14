@@ -8,8 +8,10 @@ from django.shortcuts import get_object_or_404
 
 from . import serializers
 
+
 class CreatePolygonApiView(CreateAPIView):
     serializer_class = serializers.PolygonsSerializer
+
 
 class ListPolygonsApiView(ListAPIView):
     queryset = PolygonsModel.objects.all()

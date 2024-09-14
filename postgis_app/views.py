@@ -1,4 +1,7 @@
+import json
+
 import folium
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.gis.geos import Polygon, Point
@@ -18,39 +21,43 @@ class IndexView(View):
     def post(self, request):
         print(f'request.POST: {request.POST}')
         send_text = str(request.POST.get('sendText'))
+        data_from_json = json.loads(send_text)
+        print(f'data_from_json: {data_from_json}')
+        print(f'data_from_json_type: {type(data_from_json)}')
+
         name_polygon = str(request.POST.get('namePolygon'))
-        send_text_list = send_text.split(' ')
+        print(f'namePolygon: {type(name_polygon)}')
         result_list = []
-        print(send_text_list)
         antimeridian = False
-        for el in send_text_list:
+        for el in data_from_json:
+            print(el)
+            print(type(el))
             # Избавляемся от элементов с длиной 0
-            if len(el) > 0:
-                coordinates = el[1:-1].split(',')
-                print(f'coordinates: {coordinates}')
-                # Проверяем широту
-                if len(coordinates[0]) > 0:
-                    latitude = float(coordinates[0])
-                else:
-                    latitude = float(0)
-                # Проверяем долготу
-                if len(coordinates[1]) > 0:
-                    longitude = float(coordinates[1])
-                    # Проверяем антимеридиан
-                    if longitude > 180:
-                        longitude = longitude - 360
-                        antimeridian = True
-                else:
-                    longitude = float(0)
-                result_list.append((latitude, longitude))
+            # Проверяем широту
+            if len(el[0]) > 0:
+                latitude = float(el[0])
+            else:
+                latitude = float(0)
+            # Проверяем долготу
+            if len(el[1]) > 0:
+                longitude = float(el[1])
+                # Проверяем антимеридиан
+                if longitude > 180:
+                    longitude = longitude - 360
+                    antimeridian = True
+            else:
+                longitude = float(0)
+            result_list.append((latitude, longitude))
+
         print(result_list)
-        if result_list[0] != result_list[-1]:
+        if len(result_list) == 3 or result_list[0] != result_list[-1]:
             result_list.append(result_list[0])
         polygon = Polygon(result_list)
         new_polygon = PolygonsModel(name_of_polygon=name_polygon, polygon=polygon, antimeridian=antimeridian)
         new_polygon.save()
         # Перенаправляем на страницу с созданным полигоном
-        return redirect('map', pk=new_polygon.id)
+        return HttpResponse(new_polygon.id)
+        # return redirect('map', pk=new_polygon.id)
 
 
 class ShowListPolygonsView(View):
