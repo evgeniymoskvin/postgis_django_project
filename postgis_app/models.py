@@ -1,8 +1,7 @@
-# from django.db import models
 from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+
 class PolygonsModel(models.Model):
     """Таблица полигонов"""
     name_of_polygon = models.CharField(verbose_name="Название полигона", null=False, max_length=100, blank=False)

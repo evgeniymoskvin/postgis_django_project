@@ -4,7 +4,7 @@ from postgis_app.models import PolygonsModel
 
 
 class PolygonAdmin(admin.ModelAdmin):
-    ordering = ['name_of_polygon']
+    ordering = ['id']
     search_fields = ['name_of_polygon']
 
 

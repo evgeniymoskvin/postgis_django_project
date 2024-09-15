@@ -60,6 +60,7 @@
         let count = 0
 
         function addToString() {
+            count = count + 1;
             let latitude = $('#latitude').val();
             let longitude = $('#longitude').val();
             console.log('latitude:', latitude, 'longitude:', longitude)
@@ -67,8 +68,6 @@
             let li = $("<li></li>")
             li.text(item)
             list.append(li);
-            count = count + 1;
-            console.log(count)
             if (count > 2) {
                 $('#submitButton').attr('disabled', false);
             }
