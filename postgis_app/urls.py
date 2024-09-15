@@ -19,7 +19,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.AboutView.as_view(), name='about'),
+    path('index', views.IndexView.as_view(), name='index'),
     path('all-polygons', views.ShowListPolygonsView.as_view(), name='all-polygons'),
     path('map/<int:pk>', views.ShowOnMapView.as_view(), name='map'),
 ]

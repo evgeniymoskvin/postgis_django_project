@@ -10,6 +10,15 @@ from .models import PolygonsModel
 
 
 # Create your views here.
+
+class AboutView(View):
+    """Приветственная страница"""
+    
+    def get(self, request):
+        content = {}
+        return render(request, 'postgis_app/about.html', content)
+
+
 class IndexView(View):
     """Главная страница добавления полигонов"""
 

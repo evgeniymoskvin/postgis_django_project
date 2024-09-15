@@ -1,5 +1,7 @@
 {% extends "postgis_app/base.html" %}
 {% load static %}
+{% load postgis_tags %}
+
 {% block title %}
     Все полигоны
 {% endblock %}
@@ -15,18 +17,26 @@
                 <tr>
                     <th class="th_tables" scope="col" style="width: 25px">#</th>
                     <th class="th_tables" scope="col" style="text-align: left;">Название полигона</th>
+                    <th class="th_tables" scope="col" style="text-align: left;">Координаты полигона</th>
                     <th class="th_tables" scope="col" style="text-align: center; width: 100px;">Антимередиан</th>
                 </tr>
                 </thead>
 
                 <tbody id="table_inside">
                 {% for polygon in polygons %}
-                    <tr class="tr-tables" style="cursor: context-menu;" onclick="location.href='{% url 'map' pk=polygon.id %}'">
+                    <tr class="tr-tables" style="cursor: context-menu;"
+                        onclick="location.href='{% url 'map' pk=polygon.id %}'">
                         <th class="th_tables" scope="row" style="width: 25px">{{ forloop.counter }}</th>
                         <td class="td_tables" style="text-align: left">
                             {{ polygon.name_of_polygon }}</td>
+                        <td class="td_tables" style="text-align: left">
+                            {% get_coordinates polygon.polygon %}
+                        </td>
                         <td class="td_tables" style="width: 100px; text-align: center">
-                            {{ polygon.antimeridian }}</td>
+                            {% if polygon.antimeridian %}
+                                <img src="{% static 'postgis_app/icons/check2.svg' %}" alt="Антимередиан">
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>

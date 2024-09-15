@@ -28,6 +28,7 @@
 
 }
 
+/*Плавная загрузка страницы*/
 
 .content-fade {
     scroll-behavior: smooth;
@@ -43,6 +44,8 @@
         opacity: 1;
     }
 }
+
+/*Шрифты*/
 
 .text-36px-bold {
     font-size: 36px;
@@ -62,6 +65,25 @@
     color: #1D222A;
 }
 
+.text-24px-bold {
+    font-size: 24px;
+    font-family: "Rosatom_bold", serif;
+    color: #1D222A;
+}
+
+.text-24px-regular {
+    font-size: 24px;
+    font-family: "Rosatom_regular", serif;
+    color: #1D222A;
+}
+
+.text-24px-light {
+    font-size: 24px;
+    font-family: "Rosatom_light", serif;
+    color: #1D222A;
+}
+
+
 .text-16px-bold {
     font-size: 16px;
     font-family: "Rosatom_bold", serif;
@@ -80,6 +102,7 @@
     color: #1D222A;
 }
 
+/*Инпуты ввода текста*/
 
 .input_geo_text {
     width: auto;
@@ -95,6 +118,8 @@
     /*box-shadow: 2px 4px 11px -3px rgba(149, 150, 150, 0.45);*/
     color: grey;
 }
+
+/*Кнопки*/
 
 .button_blue_clearance {
     width: 123px;
@@ -122,6 +147,8 @@
     box-shadow: 2px 4px 11px -3px rgba(155, 168, 176, 0.45);
 }
 
+/*Список координат*/
+
 ul {
     display: flex;
     flex-direction: column;
@@ -133,3 +160,48 @@ li {
     display: flex;
 }
 
+
+/*Модальное окно*/
+
+.modal_clearance {
+    border: 1px solid rgb(174, 211, 242);
+}
+
+.modal-backdrop {
+    background-color: rgb(239, 239, 239);
+    opacity: 1;
+}
+
+.modal-content_clearance {
+    border-radius: 8px;
+    border: 1px solid rgb(174, 211, 242);
+}
+
+.modal-header_clearance {
+    border: 0;
+    padding-top: 20px;
+    padding-bottom: 1rem;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+.modal-body_clearance {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.modal-footer_clearance {
+    border: 0;
+    padding-top: 1rem;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.modal-footer > * {
+    margin: 0
+}
