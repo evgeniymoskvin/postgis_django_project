@@ -151,9 +151,9 @@ MEDIA_ROOT = MEDIA_DIR
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Win
-# GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal309.dll'
-# GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal309.dll'
+GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
 
 #Linux
-GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')[0]
-GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')[0]
+# GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')[0]
+# GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')[0]

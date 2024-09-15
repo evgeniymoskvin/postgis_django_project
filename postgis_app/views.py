@@ -82,6 +82,7 @@ class ShowOnMapView(View):
     def get(self, request, pk):
         polygon_data = PolygonsModel.objects.get(id=pk)
         print(polygon_data.polygon)
+        # Получение списка координат
         points = polygon_data.polygon[0]
         result_polygon = []
 
