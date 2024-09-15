@@ -2,7 +2,7 @@ import json
 
 import folium
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.gis.geos import Polygon
 
@@ -13,7 +13,7 @@ from .models import PolygonsModel
 
 class AboutView(View):
     """Приветственная страница"""
-    
+
     def get(self, request):
         content = {}
         return render(request, 'postgis_app/about.html', content)
@@ -23,10 +23,7 @@ class IndexView(View):
     """Главная страница добавления полигонов"""
 
     def get(self, request):
-        all_data = PolygonsModel.objects.get_queryset()
-        for data_polygons in all_data:
-            print(data_polygons.polygon)
-        content = {'all_data': all_data}
+        content = {}
         return render(request, 'postgis_app/index.html', content)
 
     def post(self, request):
@@ -37,6 +34,7 @@ class IndexView(View):
         print(f'data_from_json_type: {type(data_from_json)}')
         name_polygon = str(request.POST.get('namePolygon'))
         print(f'namePolygon: {type(name_polygon)}')
+        # Список координат для внесения в бд
         result_list = []
         antimeridian = False
         for el in data_from_json:
@@ -97,7 +95,14 @@ class ShowOnMapView(View):
         map_details = map_details._repr_html_()
         content = {
             'polygon_name': polygon_data.name_of_polygon,
+            'polygon_id': polygon_data.id,
             'polygon_antimeridian': polygon_data.antimeridian,
             'map_details': map_details
         }
         return render(request, 'postgis_app/on_map.html', content)
+
+    def post(self, request, pk):
+        """Удаление полигона"""
+        polygon_data = PolygonsModel.objects.get(id=pk)
+        polygon_data.delete()
+        return redirect('all-polygons')

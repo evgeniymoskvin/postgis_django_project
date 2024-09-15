@@ -12,5 +12,4 @@ def get_coordinates(polygon_data):
 
     for i in range(len(points)):
         result_polygon.append((points.x[i], points.y[i]))
-    print(result_polygon)
     return result_polygon

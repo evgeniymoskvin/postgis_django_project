@@ -14,11 +14,51 @@
                 Антимередиан
             {% endif %}
         </div>
-        <div class="d-flex">
+        <div class="d-flex delete_style" onclick="onClickDeleteModal()">
             Удалить запись о полигоне
         </div>
         <div class="d-flex mt-2 w-100">
             {{ map_details | safe }}
         </div>
     </div>
+
+    <!-- Модальное окно настройки допуска-->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog_clearance">
+            <div class="modal-content modal-content_clearance">
+                <div class="modal-header modal-header_clearance">
+                    <h5 class="modal-title text-24px-regular" style="cursor: context-menu">Удалить полигон?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <form method="POST" data-ajax-url="{% url 'map' pk=polygon_id %}" id="id-delete-modal-form">
+                    {% csrf_token %}
+                    <div class="modal-body modal-body_clearance">
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                            <div class="d-flex text-20px-light">Удалить полигон "{{ polygon_name }}" (id={{ polygon_id }})?</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer modal-footer_clearance justify-content-between">
+                        <button type="button" class="button_grey_clearance"
+                                data-bs-dismiss="modal"
+                                onclick="$('#deleteModal').modal('hide');">Отмена
+                        </button>
+
+                        <button class="button_blue_clearance" type="submit">
+                            Удалить
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Открытие модального окна удаления записи
+        function onClickDeleteModal() {
+            $('#deleteModal').modal('show');
+
+        }
+    </script>
 {% endblock %}

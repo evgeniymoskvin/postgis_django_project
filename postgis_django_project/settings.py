@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from glob import glob
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -149,5 +150,10 @@ MEDIA_ROOT = MEDIA_DIR
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Win
 GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal309.dll'
 GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
+
+#Linux
+# GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')[0]
+# GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')[0]
