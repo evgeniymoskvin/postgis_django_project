@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  db_postgres:
+    container_name: postgres
+    image:  postgis/postgis
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "54320:5432"
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.ru
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
