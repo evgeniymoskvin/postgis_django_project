@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install --upgrade pip
 RUN apt update && apt -qy install gcc redis poppler-utils
-RUN apk add --no-cache geos gdal
+RUN apk add geos gdal
 
 WORKDIR /app
 
