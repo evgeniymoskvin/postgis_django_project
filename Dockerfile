@@ -7,7 +7,9 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install --upgrade pip
 RUN apt update && apt -qy install gcc redis poppler-utils
-RUN apk add geos gdal
+RUN apt-get install -y gdal-bin libgdal-dev
+RUN apt-get install -y python3-gdal
+RUN apt-get install -y binutils libproj-dev
 
 WORKDIR /app
 
